@@ -1,0 +1,2 @@
+1. Requests : 웹 페이지의 문서 정보를 가져오기 위한 라이브러리
+    pip install requests
