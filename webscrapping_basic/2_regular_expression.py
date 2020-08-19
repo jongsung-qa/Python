@@ -1,33 +1,33 @@
-import re # 정규식 import
+# regular express import
+import re 
 
-# ca?e
-# care, cafe, case, cave ....add()
-
-# 정규식을 컴파일
+# compile
 p = re.compile("ca.e") 
-# . (ca.e) : 하나의 문자를 의미 > care, cage, case...
-# ^ (^de) : 문자열의 시작 > desk, destination ...
-# $ (se&) : 문자열의 끝 > case, base ... 
 
+# function declaration
 def print_match(m):
     if m:
-        print("m.group() : ", m.group()) # 일치하는 문자열을 반환
-        print("m.string() : ", m.string) # 입력받은 문자열을 반환
-        print("m.start() : ", m.start()) # 일치하는 문자열의 시작 index
-        print("m.end() : ", m.end())  # 일치하는 문자열의 끝 index
-        print("m.span() : ", m.span())  # 일치하는 문자열의 시작과 끝 index
+        print("m.group() : ", m.group()) # Returns a matching string
+        print("m.string() : ", m.string) # Returns the entered string
+        print("m.start() : ", m.start()) # Start index of matching string
+        print("m.end() : ", m.end())  # end index of matching string
+        print("m.span() : ", m.span())  # Start and end index of matching string
     else:
         print("Not matching")
 
-#m = p.match("case") # 주어진 문자열의 처음부터 일치하는지 확인 so, careless인 경우 되는 것임
-#print_match(m)
-#print(m.group()) # 매치되지 않으면 에러가 발생
+# Verify that a given string matches from the beginning
+# If you input a string "thecasestudy", an error will be provided.
+m = p.match("casestudy") 
+print_match(m)
 
-# m = p.search("careless") # search : 주어진 문자열 중에 일치하는게 있는지 확인
-# print_match(m)
+# Verify that it matches a given string
+m = p.search("thecasestudy") 
+print_match(m)
 
-# lst = p.findall("careless cafe") # findall : 일치하는 모든것을 리스트 형태로 반환
-# print(lst)
+# Return all matches to list
+lst = p.findall("careless cafe") 
+print(lst)
+
 
 # 1. p = re.compile("원하는 형태")
 # 2. m = p.match("비교할 문자열") : 처음부터 일치하는지 확인
@@ -38,4 +38,3 @@ def print_match(m):
 # . (ca.e) : 하나의 문자를 의미 > care, cage, case...
 # ^ (^de) : 문자열의 시작 > desk, destination ...
 # $ (se&) : 문자열의 끝 > case, base ...
-
