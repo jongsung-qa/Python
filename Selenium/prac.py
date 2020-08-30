@@ -1,16 +1,33 @@
 # 네이버 항공권 검색
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
 # 로딩 처리를 위한 import
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+import requests
 
 browser = webdriver.Chrome()
 browser.maximize_window() # browser 창 최대화
 
-url = "https://flight.naver.com/flights/"
+url = "http://flight.naver.com/flights"
 browser.get(url)
+
+# 출발지 선택
+dep2 = browser.find_element_by_xpath("//*[@id='l_1']/div/div[1]/a[2]")
+dep2.click().send_key("toronto")
+dep1.send_keys("toronto")
+dep.send_keys(Keys.ENTER)
+
+dep3 = browser.find_element_by_class_name(
+    "inp_airport selectAutocomplete ng-pristine ng-valid").send_Keys("toronto")
+
+# 항공권 검색
+search = browser.find_element_by_id("query")
+search.send_keys("네이버항공권")
+search.send_keys(Keys.ENTER)
+
 
 # 가는날 선택
 browser.find_element_by_link_text("가는날 선택").click()
