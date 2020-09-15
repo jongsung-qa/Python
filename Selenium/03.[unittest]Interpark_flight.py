@@ -29,7 +29,7 @@ class FightBook(unittest.TestCase):
         time.sleep(2)
         arr.send_keys(Keys.ENTER)
 
-        # Date
+        # Select Date
         self.driver.find_element_by_id("depDateArrDate").click()
         time.sleep(2)
         self.driver.find_elements_by_link_text("31")[0].click()
